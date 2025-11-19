@@ -1,0 +1,19 @@
+.exhibits-container {
+  padding: 16px;
+}
+
+.babylon-canvas {
+  display: block;
+  outline: none;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-item[color="primary"] {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+

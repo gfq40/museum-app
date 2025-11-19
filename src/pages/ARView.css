@@ -1,0 +1,23 @@
+.ar-container {
+  padding: 16px;
+}
+
+.ar-canvas {
+  display: block;
+  outline: none;
+  background: linear-gradient(135deg, #0a0a1e 0%, #1a1a3e 100%);
+}
+
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-card ol {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+ion-card ol li {
+  margin-bottom: 8px;
+}
+
