@@ -23,6 +23,10 @@ export interface ArtifactInput {
  */
 export async function addArtifact(artifact: ArtifactInput): Promise<{ data: Artifact | null; error: any }> {
   try {
+    if (!supabase) {
+      return { data: null, error: new Error('Supabase not configured') };
+    }
+
     const { data, error } = await supabase
       .from('artifacts')
       .insert([artifact])
@@ -46,6 +50,10 @@ export async function addArtifact(artifact: ArtifactInput): Promise<{ data: Arti
  */
 export async function updateArtifact(id: string, artifact: Partial<ArtifactInput>): Promise<{ data: Artifact | null; error: any }> {
   try {
+    if (!supabase) {
+      return { data: null, error: new Error('Supabase not configured') };
+    }
+
     const { data, error } = await supabase
       .from('artifacts')
       .update(artifact)
@@ -70,6 +78,10 @@ export async function updateArtifact(id: string, artifact: Partial<ArtifactInput
  */
 export async function deleteArtifact(id: string): Promise<{ success: boolean; error: any }> {
   try {
+    if (!supabase) {
+      return { success: false, error: new Error('Supabase not configured') };
+    }
+
     const { error } = await supabase
       .from('artifacts')
       .delete()
@@ -92,6 +104,10 @@ export async function deleteArtifact(id: string): Promise<{ success: boolean; er
  */
 export async function getAllArtifacts(): Promise<{ data: Artifact[]; error: any }> {
   try {
+    if (!supabase) {
+      return { data: [], error: new Error('Supabase not configured') };
+    }
+
     const { data, error } = await supabase
       .from('artifacts')
       .select('*')

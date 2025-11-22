@@ -13,8 +13,10 @@ export interface Artifact {
   description_fr: string;
   image_url: string;
   type: 'image' | 'video';
+  category?: string;
   period?: string;
   origin?: string;
+  location?: string;
   material?: string;
   dimensions?: string;
   discovered?: string;
