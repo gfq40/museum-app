@@ -15,13 +15,17 @@ import {
   IonList,
   IonItem,
   IonLabel,
+  IonButtons,
+  IonMenuButton,
 } from '@ionic/react';
 import { camera, informationCircle } from 'ionicons/icons';
 import * as BABYLON from '@babylonjs/core';
 import '@babylonjs/loaders';
+import { useTranslation } from 'react-i18next';
 import './ARView.css';
 
 const ARView: React.FC = () => {
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [arSupported, setArSupported] = useState<boolean>(false);
   const [arActive, setArActive] = useState<boolean>(false);
@@ -34,9 +38,16 @@ const ARView: React.FC = () => {
 
     if (!canvasRef.current) return;
 
-    // Create Babylon.js engine
-    const engine = new BABYLON.Engine(canvasRef.current, true);
+    // Create Babylon.js engine with proper configuration
+    const engine = new BABYLON.Engine(canvasRef.current, true, {
+      preserveDrawingBuffer: true,
+      stencil: true,
+      adaptToDeviceRatio: true
+    });
     engineRef.current = engine;
+
+    // Ensure canvas has correct resolution
+    engine.setHardwareScalingLevel(1 / window.devicePixelRatio);
 
     // Create scene
     const scene = new BABYLON.Scene(engine);
@@ -85,6 +96,11 @@ const ARView: React.FC = () => {
     engine.runRenderLoop(() => {
       scene.render();
     });
+
+    // Initial resize to ensure correct aspect ratio
+    setTimeout(() => {
+      engine.resize();
+    }, 100);
 
     // Handle window resize
     const handleResize = () => {
@@ -155,7 +171,10 @@ const ARView: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>AR View</IonTitle>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>{t('arView')}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

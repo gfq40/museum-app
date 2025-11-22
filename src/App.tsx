@@ -1,19 +1,23 @@
 import { Redirect, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { images, cube, scan } from 'ionicons/icons';
-import Gallery from './pages/Gallery';
-import Exhibits3D from './pages/Exhibits3D';
-import ARView from './pages/ARView';
+import { AuthProvider } from './contexts/AuthContext';
+import { AudioPlayerProvider } from './contexts/AudioPlayerContext';
+import Welcome from './pages/Welcome';
+import Onboarding from './pages/Onboarding';
+import Admin from './pages/Admin';
+import AdminSetup from './pages/AdminSetup';
+import StorageDebug from './pages/StorageDebug';
+import MainTabs from './components/MainTabs';
+import OfflineIndicator from './components/OfflineIndicator';
+import HamburgerMenu from './components/HamburgerMenu';
+import MiniPlayer from './components/MiniPlayer';
+import './i18n';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -39,49 +43,82 @@ import '@ionic/react/css/display.css';
  */
 
 /* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
+import '@ionic/react/css/palettes/dark.class.css';
+/* import '@ionic/react/css/palettes/dark.system.css'; */
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/dark-theme.css';
+import './theme/mobile.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/gallery">
-            <Gallery />
-          </Route>
-          <Route exact path="/exhibits">
-            <Exhibits3D />
-          </Route>
-          <Route path="/ar">
-            <ARView />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/gallery" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="gallery" href="/gallery">
-            <IonIcon aria-hidden="true" icon={images} />
-            <IonLabel>Gallery</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="exhibits" href="/exhibits">
-            <IonIcon aria-hidden="true" icon={cube} />
-            <IonLabel>3D Exhibits</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="ar" href="/ar">
-            <IonIcon aria-hidden="true" icon={scan} />
-            <IonLabel>AR View</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  useEffect(() => {
+    // Register service worker for PWA (only in production)
+    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+      navigator.serviceWorker.register('/museum-app/sw.js').then(
+        (registration) => {
+          console.log('Service Worker registered:', registration);
+        },
+        (error) => {
+          console.log('Service Worker registration failed:', error);
+        }
+      );
+    }
+  }, []);
+
+  return (
+    <IonApp>
+      <AuthProvider>
+        <AudioPlayerProvider>
+          <OfflineIndicator />
+          <IonReactRouter basename="/museum-app">
+            <HamburgerMenu />
+            <IonRouterOutlet id="main-content">
+              {/* Onboarding (first-time users) */}
+              <Route exact path="/onboarding">
+                <Onboarding />
+              </Route>
+
+              {/* Welcome/Auth Page (no tabs) */}
+              <Route exact path="/welcome">
+                <Welcome />
+              </Route>
+
+              {/* Storage Debug (hidden route) */}
+              <Route exact path="/storage-debug">
+                <StorageDebug />
+              </Route>
+
+              {/* Admin Setup (hidden route) */}
+              <Route exact path="/admin-setup">
+                <AdminSetup />
+              </Route>
+
+              {/* Admin Panel (hidden route) */}
+              <Route exact path="/admin">
+                <Admin />
+              </Route>
+
+              {/* Main App Routes (with tabs) */}
+              <Route path="/tabs">
+                <MainTabs />
+              </Route>
+
+              {/* Default redirect - check if onboarding completed */}
+              <Route exact path="/">
+                <Redirect to={localStorage.getItem('onboardingCompleted') === 'true' ? '/welcome' : '/onboarding'} />
+              </Route>
+            </IonRouterOutlet>
+
+            {/* Mini Player - Persistent across all pages */}
+            <MiniPlayer />
+          </IonReactRouter>
+        </AudioPlayerProvider>
+      </AuthProvider>
+    </IonApp>
+  );
+};
 
 export default App;

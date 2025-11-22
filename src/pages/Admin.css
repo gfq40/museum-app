@@ -1,0 +1,12 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.login-container ion-card {
+  max-width: 400px;
+  width: 100%;
+}
+

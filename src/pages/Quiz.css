@@ -1,0 +1,19 @@
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.quiz-container ion-card {
+  margin-bottom: 20px;
+}
+
+.quiz-container ion-item {
+  --padding-start: 0;
+  margin: 10px 0;
+}
+
+.quiz-container ion-radio {
+  margin-right: 12px;
+}
+

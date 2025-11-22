@@ -1,0 +1,341 @@
+/* Mobile Optimizations */
+
+/* Improve touch targets - minimum 44x44px */
+ion-button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+ion-fab-button {
+  --size: 56px;
+}
+
+ion-item {
+  min-height: 48px;
+}
+
+/* Mobile-first gallery layout */
+@media (max-width: 768px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .gallery-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .gallery-card ion-card-header {
+    padding: 12px;
+  }
+
+  .gallery-card ion-card-title {
+    font-size: 1.1rem;
+  }
+
+  .gallery-card img {
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+/* Tablet layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 1025px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Improve scrolling performance */
+ion-content {
+  --overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize images for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lazy loading placeholder */
+.image-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Mobile-optimized search bar */
+@media (max-width: 768px) {
+  ion-searchbar {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    padding: 8px 0;
+  }
+}
+
+/* Mobile-optimized segment buttons */
+@media (max-width: 768px) {
+  ion-segment {
+    padding: 8px 16px;
+  }
+
+  ion-segment-button {
+    min-height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Improve 3D canvas on mobile */
+@media (max-width: 768px) {
+  .babylon-canvas {
+    height: 300px !important;
+  }
+
+  .exhibits-container {
+    padding: 12px;
+  }
+
+  .exhibits-container ion-card {
+    margin: 8px 0;
+  }
+}
+
+/* Mobile-optimized quiz */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 12px;
+  }
+
+  .quiz-container ion-card {
+    margin: 8px 0;
+  }
+
+  .quiz-container ion-card-title {
+    font-size: 1.1rem;
+  }
+
+  .quiz-container ion-radio-group ion-item {
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+}
+
+/* Artifact detail mobile optimization */
+@media (max-width: 768px) {
+  .artifact-detail-container {
+    padding: 12px;
+  }
+
+  .artifact-detail-container img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .artifact-detail-container ion-card {
+    margin: 8px 0;
+  }
+}
+
+/* QR Scanner mobile optimization */
+@media (max-width: 768px) {
+  .qr-scanner-modal {
+    --width: 100%;
+    --height: 100%;
+  }
+
+  #qr-reader {
+    width: 100% !important;
+  }
+}
+
+/* Audio player mobile optimization */
+@media (max-width: 768px) {
+  .audio-player {
+    padding: 12px;
+  }
+
+  .audio-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .audio-controls button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Improve button spacing on mobile */
+@media (max-width: 768px) {
+  ion-button {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    margin: 4px 0;
+  }
+}
+
+/* Floating action button positioning */
+ion-fab {
+  position: fixed;
+}
+
+@media (max-width: 768px) {
+  ion-fab[vertical="bottom"][horizontal="end"] {
+    bottom: 70px; /* Above tab bar */
+    right: 16px;
+  }
+}
+
+/* Tab bar optimization */
+@media (max-width: 768px) {
+  ion-tab-bar {
+    height: 56px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  ion-tab-button {
+    font-size: 0.75rem;
+  }
+}
+
+/* Improve card shadows on mobile */
+@media (max-width: 768px) {
+  ion-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Skeleton screen for loading */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 16px;
+  margin: 8px 0;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+  margin: 12px 0;
+}
+
+.skeleton-image {
+  height: 200px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Pull-to-refresh indicator */
+ion-refresher {
+  z-index: 1;
+}
+
+/* Haptic feedback visual indicator */
+.haptic-feedback {
+  animation: haptic-pulse 0.3s ease-out;
+}
+
+@keyframes haptic-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Swipe gesture indicator */
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.swipe-indicator.left {
+  left: 20px;
+}
+
+.swipe-indicator.right {
+  right: 20px;
+}
+
+.swipe-indicator.active {
+  opacity: 0.5;
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Prevent zoom on input focus */
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-top)) {
+  ion-header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  ion-footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+

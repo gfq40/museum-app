@@ -3,10 +3,31 @@ ion-col {
 }
 
 ion-card {
-  margin: 16px;
+  margin: 8px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-card:active {
+  transform: scale(0.98);
+}
+
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+ion-card-header {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ion-card-content > div {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ion-card-header {
@@ -22,19 +43,40 @@ ion-card-content {
 
 .gallery-media {
   width: 100% !important;
-  height: 300px !important;
+  height: 180px !important;
   object-fit: cover !important;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: block;
 }
 
-ion-card-content p {
-  min-height: 60px;
+/* Responsive image heights */
+@media (min-width: 768px) {
+  .gallery-media {
+    height: 200px !important;
+  }
 }
+
+@media (min-width: 992px) {
+  .gallery-media {
+    height: 220px !important;
+  }
+}
+
+/* Description removed from gallery cards - now only on detail page */
 
 ion-card-title {
   font-weight: bold;
   color: var(--ion-color-primary);
+  font-size: 1rem;
+}
+
+/* Adjust card header for smaller cards */
+ion-card-header {
+  padding: 12px;
+}
+
+ion-card-content {
+  padding: 12px;
 }
 

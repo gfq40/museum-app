@@ -1,0 +1,35 @@
+.help-content {
+  --background: var(--ion-color-light);
+}
+
+.help-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.help-tips-list {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.help-tips-list li {
+  margin-bottom: 12px;
+}
+
+ion-item h2 {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+ion-item p {
+  font-size: 14px;
+  color: var(--ion-color-medium);
+  white-space: normal;
+}
+
+/* Dark mode */
+body.dark .help-content {
+  --background: var(--ion-background-color);
+}
+

@@ -1,0 +1,69 @@
+.credits-content {
+  --background: var(--ion-color-light);
+}
+
+.credits-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.credits-photographers {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--ion-color-light-tint);
+  border-radius: 8px;
+}
+
+.credits-photographers ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.credits-photographers li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.credits-thanks-list {
+  margin-top: 16px;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.credits-thanks-list li {
+  margin: 8px 0;
+}
+
+.credits-footer {
+  text-align: center;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+  font-style: italic;
+}
+
+ion-card-title ion-icon {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+ion-item h2 {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+ion-item p {
+  font-size: 14px;
+  color: var(--ion-color-medium);
+  white-space: normal;
+}
+
+/* Dark mode */
+body.dark .credits-content {
+  --background: var(--ion-background-color);
+}
+
+body.dark .credits-photographers {
+  background: var(--ion-color-dark-tint);
+}
+

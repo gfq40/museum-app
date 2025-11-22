@@ -1,0 +1,128 @@
+.file-upload-container {
+  margin: 20px 0;
+}
+
+.file-upload-dropzone {
+  border: 2px dashed var(--ion-color-medium);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--ion-color-light);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-dropzone:hover {
+  border-color: var(--ion-color-primary);
+  background: var(--ion-color-light-tint);
+}
+
+.file-upload-dropzone.drag-active {
+  border-color: var(--ion-color-primary);
+  background: var(--ion-color-primary-tint);
+  transform: scale(1.02);
+}
+
+.upload-prompt {
+  width: 100%;
+}
+
+.upload-prompt ion-icon {
+  font-size: 64px;
+  color: var(--ion-color-medium);
+  margin-bottom: 10px;
+}
+
+.upload-prompt p {
+  margin: 10px 0;
+  color: var(--ion-color-dark);
+}
+
+.upload-prompt small {
+  color: var(--ion-color-medium);
+  font-size: 0.85rem;
+}
+
+.upload-status {
+  width: 100%;
+}
+
+.upload-status ion-spinner {
+  margin-bottom: 10px;
+}
+
+.upload-status p {
+  margin: 10px 0;
+  color: var(--ion-color-dark);
+}
+
+.upload-status small {
+  color: var(--ion-color-medium);
+  font-size: 0.75rem;
+  word-break: break-all;
+}
+
+.upload-preview {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.upload-preview img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.upload-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.upload-preview:hover .upload-overlay {
+  opacity: 1;
+}
+
+.upload-overlay ion-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.upload-overlay p {
+  color: white;
+  margin: 0;
+}
+
+.upload-error {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--ion-color-danger-tint);
+  color: var(--ion-color-danger-contrast);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-error ion-icon {
+  flex-shrink: 0;
+}
+

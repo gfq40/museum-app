@@ -1,0 +1,310 @@
+/* Import Jost font (open source, similar to Futura) */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
+
+.welcome-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Jost', sans-serif;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 40px 20px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.logo-container {
+  margin-bottom: 30px;
+}
+
+.museum-logo {
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+}
+
+.app-title {
+  font-size: 36px;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 3px;
+  color: white;
+  margin: 10px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
+
+.app-tagline {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Auth Container */
+.auth-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Social Buttons */
+.social-button {
+  --background: white;
+  --color: #333;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.social-button:hover {
+  --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.google-button {
+  --background: white;
+  --color: #333;
+}
+
+.apple-button {
+  --background: #000;
+  --color: white;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.divider span {
+  padding: 0 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* Email Toggle Button */
+.email-toggle-button {
+  --border-color: rgba(255, 255, 255, 0.5);
+  --color: white;
+  --border-radius: 12px;
+  height: 50px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Auth Card */
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  margin: 0;
+}
+
+.auth-title {
+  text-align: center;
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.error-text {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.error-text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Auth Inputs */
+.auth-input {
+  --background: #f5f5f5;
+  --border-radius: 12px;
+  margin-bottom: 12px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+
+.auth-input ion-icon {
+  color: #666;
+  margin-right: 10px;
+}
+
+/* Submit Button */
+.submit-button {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --border-radius: 12px;
+  height: 50px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Auth Switch */
+.auth-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 5px;
+}
+
+.auth-switch ion-text {
+  font-size: 14px;
+  color: #666;
+}
+
+.back-button {
+  display: block;
+  margin: 10px auto 0;
+  --color: #666;
+}
+
+/* Guest Mode */
+.guest-mode {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.guest-button {
+  --color: white;
+  font-size: 16px;
+  text-decoration: underline;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Footer */
+.welcome-footer {
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.welcome-footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .auth-card {
+    background: rgba(30, 30, 30, 0.95);
+  }
+
+  .auth-title {
+    color: white;
+  }
+
+  .auth-input {
+    --background: rgba(255, 255, 255, 0.1);
+    --color: white;
+  }
+
+  .auth-input ion-icon {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .auth-switch ion-text {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .back-button {
+    --color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .welcome-container {
+    padding: 30px 15px 15px;
+  }
+
+  .museum-icon {
+    font-size: 60px;
+  }
+
+  .app-title {
+    font-size: 28px;
+  }
+
+  .app-tagline {
+    font-size: 14px;
+  }
+}
+

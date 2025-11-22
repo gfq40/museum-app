@@ -1,0 +1,152 @@
+.mini-player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 8px 8px 8px;
+  pointer-events: none;
+}
+
+.mini-player-card {
+  margin: 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 16px 16px 0 0;
+  pointer-events: auto;
+  background: var(--ion-background-color);
+}
+
+.mini-player-content {
+  padding: 12px 16px;
+}
+
+.mini-player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.mini-player-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ion-color-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-player-title:hover {
+  opacity: 0.8;
+}
+
+.mini-player-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.mini-player-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.time-label {
+  font-size: 11px;
+  color: var(--ion-color-medium);
+  min-width: 35px;
+  text-align: center;
+}
+
+.progress-range {
+  flex: 1;
+  padding: 0;
+  --bar-height: 4px;
+  --knob-size: 16px;
+}
+
+.mini-player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-player-controls ion-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin: 0;
+}
+
+.play-pause-button {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.play-pause-button ion-icon {
+  font-size: 24px;
+}
+
+.skip-label {
+  font-size: 10px;
+  margin: 0 2px;
+}
+
+.speed-label {
+  font-size: 12px;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+.speed-selected {
+  --background: var(--ion-color-primary-tint);
+  font-weight: 600;
+}
+
+/* Dark theme adjustments */
+body.dark .mini-player-card {
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .mini-player-controls {
+    gap: 4px;
+  }
+  
+  .mini-player-controls ion-button {
+    --padding-start: 4px;
+    --padding-end: 4px;
+  }
+  
+  .play-pause-button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Animation */
+.mini-player-container {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

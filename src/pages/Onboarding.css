@@ -1,0 +1,120 @@
+.onboarding-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark .onboarding-content {
+  --background: linear-gradient(135deg, #434343 0%, #000000 100%);
+}
+
+.onboarding-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.onboarding-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.skip-button {
+  --color: white;
+  font-weight: 600;
+}
+
+.onboarding-slides {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.onboarding-slides .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.onboarding-footer {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .onboarding-footer {
+  background: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.get-started-button {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --border-radius: 12px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.next-button {
+  --color: var(--ion-color-primary);
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Swiper pagination customization */
+.onboarding-slides .swiper-pagination {
+  bottom: 140px !important;
+  position: absolute !important;
+}
+
+.onboarding-slides .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.onboarding-slides .swiper-pagination-bullet-active {
+  background: white;
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .onboarding-footer {
+    padding: 16px;
+  }
+  
+  .get-started-button {
+    --padding-top: 14px;
+    --padding-bottom: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Animation for slide entrance */
+.onboarding-slide {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

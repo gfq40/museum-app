@@ -1,0 +1,149 @@
+/* Image Zoom Thumbnail */
+.image-zoom-thumbnail {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.image-zoom-thumbnail:hover {
+  transform: scale(1.02);
+}
+
+.image-zoom-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  font-size: 14px;
+  gap: 8px;
+}
+
+.image-zoom-thumbnail:hover .image-zoom-overlay {
+  opacity: 1;
+}
+
+.image-zoom-overlay ion-icon {
+  font-size: 32px;
+}
+
+/* Modal Styles */
+.image-zoom-modal {
+  --background: rgba(0, 0, 0, 0.95);
+}
+
+.image-zoom-modal::part(content) {
+  --background: rgba(0, 0, 0, 0.95);
+}
+
+.image-zoom-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-zoom-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding: 8px;
+}
+
+.image-zoom-header ion-button {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: white;
+  font-size: 24px;
+}
+
+.image-zoom-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+
+.image-zoom-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
+}
+
+.image-zoom-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 12px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.image-zoom-controls ion-button {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: white;
+  --border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.image-zoom-controls ion-button[fill="outline"] {
+  --border-color: rgba(255, 255, 255, 0.3);
+  --border-width: 1px;
+  width: auto;
+  padding: 0 16px;
+  border-radius: 20px;
+}
+
+.image-zoom-controls span {
+  color: white;
+  font-size: 14px;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .image-zoom-overlay span {
+    font-size: 12px;
+  }
+
+  .image-zoom-controls {
+    bottom: 10px;
+    padding: 8px 16px;
+  }
+
+  .image-zoom-controls ion-button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+

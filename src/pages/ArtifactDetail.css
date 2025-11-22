@@ -1,0 +1,135 @@
+.artifact-detail-container {
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artifact-detail-image,
+.artifact-detail-video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #000;
+}
+
+.detailed-description {
+  line-height: 1.8;
+  font-size: 16px;
+  color: var(--ion-text-color);
+  text-align: justify;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 24px;
+  color: var(--ion-color-primary);
+  margin-top: 4px;
+}
+
+.info-item strong {
+  display: block;
+  color: var(--ion-color-primary);
+  margin-bottom: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ion-text-color);
+}
+
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Swipe Navigation Hint */
+.swipe-hint {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  align-items: center;
+  z-index: 100;
+  animation: fadeInOut 3s ease-in-out;
+  pointer-events: none;
+}
+
+.swipe-hint ion-icon {
+  font-size: 16px;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+/* Navigation Indicators */
+.navigation-indicators {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--ion-color-light);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--ion-color-medium);
+  transition: all 0.2s ease;
+}
+
+.nav-button:not(.disabled):hover {
+  background: var(--ion-color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.nav-button.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-button ion-icon {
+  font-size: 20px;
+}
+
