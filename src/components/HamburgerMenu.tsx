@@ -21,6 +21,7 @@ import {
   informationCircleOutline,
   ribbonOutline,
   sunnyOutline,
+  schoolOutline,
 } from 'ionicons/icons';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -97,6 +98,11 @@ const HamburgerMenu: React.FC = () => {
           <IonListHeader style={{ marginTop: '20px' }}>
             <IonLabel>{t('information')}</IonLabel>
           </IonListHeader>
+
+          <IonItem button onClick={() => navigateTo('/onboarding')}>
+            <IonIcon icon={schoolOutline} slot="start" />
+            <IonLabel>{t('showTutorial')}</IonLabel>
+          </IonItem>
 
           <IonItem button onClick={() => navigateTo('/tabs/help')}>
             <IonIcon icon={helpCircleOutline} slot="start" />
